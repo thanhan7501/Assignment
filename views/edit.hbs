@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cellphone World</title>
+    <link rel="stylesheet" type="text/css" href="css/style_add.css">
+</head>
+
+<body>
+    {{> header}}
+    <center>
+        <form action="/doEdit" method="POST">
+            <fieldset>
+                <legend>Edit Phone</legend>
+                <div class="input">
+                    Phone Name: <input class="input1" type="text" name="phoneName" required maxlength="30"
+                        size="20" value="{{model.phoneName}}"><br><br>
+                    Phone Ram: <input class="input1" type="number" name="phoneRam" required maxlength="3"
+                        size="33" value="{{model.phoneRam}}"><br><br>
+                    Phone Rom: <input class="input1" type="number" name="phoneRom" required maxlength="3"
+                        size="33" value="{{model.phoneRom}}"><br><br>
+                    Phone CPU: <input class="input1" type="text" name="phoneCPU" required maxlength="30"
+                        size="20" value="{{model.phoneCPU}}"><br><br>
+                    Price: <input class="input1" type="number" name="price" required maxlength="30"
+                        size="20" value="{{model.price}}"><br><br>
+                    Producer Name: <input class="input1" type="text" name="producerName" required maxlength="30"
+                        size="20"value="{{model.producerName}}">
+                </div>
+                <br><br>
+                <input type="submit" name="edit" value="Edit">
+            </fieldset>
+        </form>
+    </center>
+    {{> footer}}
+</body>
+
+</html>

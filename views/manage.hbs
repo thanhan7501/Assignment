@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cellphone World</title>
+    <link rel="stylesheet" type="text/css" href="css/style_table.css">
+    <script src="js/script.js"></script>
+
+</head>
+
+<body>
+    {{> header}}
+    <h1>List of Cellphone</h1>
+    <center>
+        <form action="/doSearch" method="POST" class="form-inline">
+            <input type="text" class="form-control" name="search" id="search" placeholder="Search for cellphone name">
+            <button type="submit" class="btn btn-info">
+                <span class="glyphicon glyphicon-search"></span> Search
+            </button>
+        </form>
+    </center>
+    <table cellpadding="0" cellspacing="0" border="1" class="rwd-table">
+        <tr>
+            <th>Phone Name</th>
+            <th>Phone Ram (GB)</th>
+            <th>Phone Rom (GB)</th>
+            <th>Phone CPU</th>
+            <th>Price</th>
+            <th>Producer Name</th>
+            <th>Option</th>
+        <tr>
+            {{#each model}}
+        <tr>
+            <td>{{phoneName}}</td>
+            <td>{{phoneRam}}</td>
+            <td>{{phoneRom}}</td>
+            <td>{{phoneCPU}}</td>
+            <td>{{price}}</td>
+            <td>{{producerName}}</td>
+            <td>
+                <a href="/edit?id={{_id}}"><input type="submit" value="Edit"></a>
+                <a href="/delete?id={{_id}}" onclick="return confirmDelete('{{phoneName}}')"><input type="submit"
+                        value="Delete"></a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    {{> footer}}
+</body>
+
+</html>
