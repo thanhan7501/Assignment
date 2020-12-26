@@ -15,8 +15,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-    res.render('/login');
-    //res.redirect('/login');
+    res.redirect('/login');
 });
 
 app.get('/index', (req, res) => {
