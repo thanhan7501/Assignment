@@ -163,6 +163,6 @@ app.get('/delete', async (req, res) => {
     res.redirect('/manage');
 })  
 
-// var PORT = process.env.Port || 8000
-// app.listen(PORT);
-// console.debug("Server is running on port: " + PORT);
+var PORT = process.env.Port || 8000
+app.listen(PORT);
+console.debug("Server is running on port: " + PORT);
