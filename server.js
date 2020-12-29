@@ -137,8 +137,8 @@ app.post('/doEdit', async (req, res) => {
     res.redirect('/manage');
 })
 
-app.post('/doSearch', async (req, res) => {
-    let phoneSearch = req.body.search;
+app.get('/doSearch', async (req, res) => {
+    let phoneSearch = req.query.search;
     let client = await MongoClient.connect(url, {
         useNewUrlParser: true,
         useUnifiedTopology: true

@@ -11,13 +11,16 @@
 
 <body>
     {{> header}}
+
     <h1>List of Cellphone</h1>
     <center>
-        <form action="/doSearch" method="POST" class="form-inline">
+        <form action="/doSearch" method="GET" class="form-inline">
             <input type="text" class="form-control" name="search" id="search" placeholder="Search for cellphone name">
-            <button type="submit" class="btn btn-info">
-                <span class="glyphicon glyphicon-search"></span> Search
-            </button>
+            <a href="/doSearch?search={{phoneSearch}}">
+                <button type="submit" class="btn btn-info">
+                    <span class="glyphicon glyphicon-search"></span> Search
+                </button>
+            </a>
         </form>
     </center>
     <table cellpadding="0" cellspacing="0" border="1" class="rwd-table">
