@@ -133,7 +133,11 @@ app.post('/doEdit', async (req, res) => {
         useUnifiedTopology: true
     });
     let dbo = client.db('Cellphone');
-    await dbo.collection('cellphone').updateOne(condition, newCellphone);
+    await dbo.collection('cellphone').updateOne(condition, newCellphone, function (err, res){
+        if (err) throw err;
+        console.log("1 document updated");
+        client.close();
+    });
     res.redirect('/manage');
 })
 
