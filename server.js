@@ -102,7 +102,7 @@ app.get('/edit', async (req, res) => {
     });
     let dbo = client.db('Cellphone');
     let product = await dbo.collection('cellphone').findOne(condition);
-    res.render('edit', { model: product })
+    res.render('edit', { model: product });
 })
 
 app.post('/doEdit', async (req, res) => {
@@ -126,7 +126,7 @@ app.post('/doEdit', async (req, res) => {
     };
 
     var ObjectID = require('mongodb').ObjectID;
-    let condition = { '_id': ObjectID(id) }
+    let condition = { '_id': ObjectID(id) };
 
     let client = await MongoClient.connect(url, {
         useNewUrlParser: true,
@@ -134,7 +134,7 @@ app.post('/doEdit', async (req, res) => {
     });
     let dbo = client.db('Cellphone');
     await dbo.collection('cellphone').updateOne(condition, newCellphone);
-    res.redirect('/manage')
+    res.redirect('/manage');
 })
 
 app.post('/doSearch', async (req, res) => {
