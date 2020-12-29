@@ -112,6 +112,7 @@ app.post('/doEdit', async (req, res) => {
     let phoneCPU = req.body.phoneCPU;
     let price = req.body.price;
     let producerName = req.body.producerName;
+    let id = req.body.id;
 
     let newCellphone = {
         $set: {
