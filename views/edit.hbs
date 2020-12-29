@@ -14,6 +14,7 @@
             <fieldset>
                 <legend>Edit Phone</legend>
                 <div class="input">
+                    <input type="hidden" name="id" value="{{model._id}}">
                     Phone Name: <input class="input1" type="text" name="phoneName" required maxlength="30"
                         size="20" value="{{model.phoneName}}"><br><br>
                     Phone Ram: <input class="input1" type="number" name="phoneRam" required maxlength="3"
