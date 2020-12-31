@@ -139,7 +139,7 @@ app.post('/doEdit', async (req, res) => {
         client.close();
     });
     res.redirect('/manage');
-})
+});
 
 app.get('/doSearch', async (req, res) => {
     let phoneSearch = req.query.search;
