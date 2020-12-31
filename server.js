@@ -61,21 +61,26 @@ app.post('/doAdd', async (req, res) => {
     let price = req.body.price;
     let producerName = req.body.producerName;
 
-    let newCellphone = {
-        phoneName: phoneName,
-        phoneRam: phoneRam,
-        phoneRom: phoneRom,
-        phoneCPU: phoneCPU,
-        price: price,
-        producerName: producerName
+    if(phoneName.length < 1 || phoneRam.length < 1 || phoneRom.length < 1 || phoneCPU.length < 1 || price.length < 1 || producerName.length < 1){
+        res.render('add', { error: '*Error Missing information'});
     }
-    let client = await MongoClient.connect(url, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
-    let dbo = client.db('Cellphone');
-    await dbo.collection('cellphone').insertOne(newCellphone);
-    res.redirect('/add');
+    else{
+        let newCellphone = {
+            phoneName: phoneName,
+            phoneRam: phoneRam,
+            phoneRom: phoneRom,
+            phoneCPU: phoneCPU,
+            price: price,
+            producerName: producerName
+        }
+        let client = await MongoClient.connect(url, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+        let dbo = client.db('Cellphone');
+        await dbo.collection('cellphone').insertOne(newCellphone);
+        res.redirect('/add');
+    }
 });
 
 app.get('/manage', async (req, res) => {
